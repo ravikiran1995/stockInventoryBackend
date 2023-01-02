@@ -7,6 +7,7 @@ var indexRouter = require('./server/routes/index');
 var usersRouter = require('./server/routes/users');
 var manufactureRouter = require('./server/routes/manufactureRoutes');
 var supplierRoutes = require('./server/routes/supplierRoutes');
+var commonRoutes = require('./server/routes/commonRoutes');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/manufacture', manufactureRouter);
 app.use('/suppliers', supplierRoutes);
+app.use('/common', commonRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
