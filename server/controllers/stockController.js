@@ -1,8 +1,9 @@
 const stockCollectionSchema = require('../models/StockSchema')
+const _ = require('lodash');
 
 module.exports = {
     saveStockCollection: (req, res, next) => {
-
+        req.body.barcode = _.uniqueId('STC_INV_');
         try {
             stockCollectionSchema.create(req.body).then(result => {
                 console.log(">>>>>>", result)
@@ -44,7 +45,7 @@ module.exports = {
     },
     getAllStockCollectionsByFilter: (req, res, next) => {
         try {
-            console.log("REQ BODD",req.body)
+            console.log("REQ BODD", req.body)
             stockCollectionSchema.find(req.body).then(result => {
                 console.log(">>>>>>", result)
                 res.json({
@@ -55,7 +56,7 @@ module.exports = {
             }).catch(err => {
                 res.json({
                     status: 500,
-                    error:err,
+                    error: err,
                     message: "Failed to find StockCollection"
                 })
             })
