@@ -31,8 +31,8 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // routes
-app.get('/.well-known/pki-validation/AA96742FCF3680086DE53699290CEEC9.txt',(req,res)=>{
-  res.sendFile('/home/ec2-user/stockInventoryBackend/AA96742FCF3680086DE53699290CEEC9.txt')
+app.get('/.well-known/pki-validation/98C93F98CFD643F1DD63EFF66C9D5EFD.txt',(req,res)=>{
+  res.sendFile('/home/ec2-user/stockInventoryBackend/98C93F98CFD643F1DD63EFF66C9D5EFD.txt')
 })
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
