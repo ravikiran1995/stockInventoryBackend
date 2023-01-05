@@ -1,4 +1,4 @@
-const stockCollectionSchema = require('../models/StockSchema')
+const stockCollectionSchema = require('../models/stockSchema')
 const _ = require('lodash');
 
 module.exports = {
