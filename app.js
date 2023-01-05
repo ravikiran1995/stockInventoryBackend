@@ -52,16 +52,16 @@ app.use(function (err, req, res, next) {
 app.listen(process.env.PORT || 8081, () => {
   console.log('Server is started on 127.0.0.1:' + (process.env.PORT || 8081));
 });
+const uri = "mongodb+srv://myviz:stockinventory@cluster0.zgjhlzu.mongodb.net/?retryWrites=true&w=majority";
 //configure mongoose
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/stockinventory",
+mongoose.connect(uri,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   },
   (err) => {
     if (err) {
-      console.log(err);
+      console.log(">>>>>error",err);
     } else {
       console.log("Connected to MongoDB");
     }
