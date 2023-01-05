@@ -65,6 +65,12 @@ app.use(function (err, req, res, next) {
 app.listen(3000, () => {
   console.log('Server is started on 127.0.0.1:' + (process.env.PORT || 3000));
 });
+
+const httpsServer = https.createServer(cred,app);
+httpsServer.listen(8443,()=>{
+  console.log("so https is connected now")
+})
+
 const uri = "mongodb+srv://myviz:stockinventory@cluster0.zgjhlzu.mongodb.net/?retryWrites=true&w=majority";
 //configure mongoose
 mongoose.connect(uri,
@@ -80,8 +86,5 @@ mongoose.connect(uri,
     }
   }
 );
-
-const httpsServer = https.createServer(cred,app);
-httpsServer.listen(8443)
 
 module.exports = app;
