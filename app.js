@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.get('/.well-known/pki-validation/AA96742FCF3680086DE53699290CEEC9.txt',(req,res)=>{
-  res.sendFile('./AA96742FCF3680086DE53699290CEEC9.txt')
+  res.sendFile('/home/ec2-user/stockInventoryBackend/AA96742FCF3680086DE53699290CEEC9.txt')
 })
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
