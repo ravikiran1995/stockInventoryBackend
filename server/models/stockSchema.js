@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const stockSchema = new Schema({
+const StockSchema = new Schema({
     barcode: { type: String, default: '' },
     supplier: { type: String, default: '' },
     manufacture: { type: String, default: '' },
@@ -26,4 +26,4 @@ const stockSchema = new Schema({
     },
 });
 
-module.exports = mongoose.model("stock", stockSchema);
+module.exports = mongoose.model("stock", StockSchema);
