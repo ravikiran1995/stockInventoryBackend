@@ -3,6 +3,7 @@ var express = require('express');
 var helmet = require('helmet');
 var cors = require('cors');
 var fs = require('fs');
+var https =require('https');
 var logger = require('morgan');
 var indexRouter = require('./server/routes/index');
 var usersRouter = require('./server/routes/users');
@@ -18,8 +19,12 @@ const mongoose = require("mongoose");
 app.use(logger('dev'));
 app.use(cors())
 
-const file = fs.readFileSync('./98C93F98CFD643F1DD63EFF66C9D5EFD.txt');
-
+const key = fs.readFileSync('private.key');
+const cert = fs.readFileSync('certificate.crt');
+const cred ={
+  key,
+  cert
+}
 
 // set security HTTP headers
 app.use(helmet());
@@ -76,5 +81,7 @@ mongoose.connect(uri,
   }
 );
 
+const httpsServer = https.createServer(cred,app);
+httpsServer.listen(8443)
 
 module.exports = app;
